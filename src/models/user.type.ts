@@ -11,3 +11,9 @@ export interface UserProfile extends UserLogin{
     services: Service[];
     posts: Post[]
 }
+export interface IResponsUser<T>{
+    status_code: number | string
+    status: string;
+    msg: string;
+    data?: T
+}

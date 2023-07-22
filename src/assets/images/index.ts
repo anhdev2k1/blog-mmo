@@ -1,16 +1,19 @@
-export const banner = require('./banner.png')
-export const bannerReact = require('./banner-react.png')
-export const icBell = require('./ic-bell.png')
-export const icComment = require('./ic-comment.png')
-export const icHand = require('./ic-hand.png')
-export const icInstaLike = require('./ic-insta-like.png')
-export const icIpad = require('./ic-ipad.png')
-export const icPersonFeed = require('./ic-person-feed.png')
-export const icPerson1 = require('./ic-person1.png')
-export const icPerson2 = require('./ic-person2.png')
-export const icPerson3 = require('./ic-person3.png')
-export const icPerson4 = require('./ic-person4.png')
-export const icPurple = require('./ic-purple.png')
-export const icWorld = require('./ic-world.png')
-export const banner1 = require('./img-banner1.png')
-
+export const images = {
+  banner: require("./banner.png"),
+  bannerReact: require("./banner-react.png"),
+  icBell: require("./ic-bell.png"),
+  icComment: require("./ic-comment.png"),
+  icHand: require("./ic-hand.png"),
+  icInstaLike: require("./ic-insta-like.png"),
+  icIpad: require("./ic-ipad.png"),
+  icPersonFeed: require("./ic-person-feed.png"),
+  icPerson1: require("./ic-person1.png"),
+  icPerson2: require("./ic-person2.png"),
+  icPerson3: require("./ic-person3.png"),
+  icPerson4: require("./ic-person4.png"),
+  icPurple: require("./ic-purple.png"),
+  icWorld: require("./ic-world.png"),
+  banner1: require("./img-banner1.png"),
+  imgLogin: require("./img-login.png"),
+  bgMain: require("./bg-main.png")
+};

@@ -1,0 +1,110 @@
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-image: url('../../../assets/images/bg-main.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.login__wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  min-height: 300px;
+  background: rgba(255, 255, 255, 0.226);
+  background-color: white;
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  padding: 10px;
+  gap: 10px;
+  /* position: relative; */
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border: 1px solid #e3e3e3;
+}
+.form__heading{
+  font-size: 2.5rem;
+  background: linear-gradient(
+    90deg,
+    hsla(312, 77%, 86%, 1) 0%,
+    hsla(220, 61%, 79%, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.form__login {
+  width: 400px;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-left: 20px;
+  /* gap: 10px; */
+}
+.input__form{
+  width: 90%;
+}
+.login__img {
+  width: 400px;
+  position: absolute;
+  top: -80px;
+  right: -100px;
+  animation: moveTop ease-in-out 3s alternate infinite;
+  flex-shrink: 0;
+}
+
+.login__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@keyframes moveTop {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(30px);
+  }
+}
+/* CSS */
+.button {
+  background: linear-gradient(
+    90deg,
+    hsla(312, 77%, 86%, 1) 0%,
+    hsla(220, 61%, 79%, 1) 100%
+  );
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: "Inter UI", "SF Pro Display", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  height: 45px;
+  padding: 0 1.6rem;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  transition: all 0.5s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button:hover {
+  box-shadow: hsla(312, 77%, 86%, 1) 0px 5px 15px 0px;
+  transition-duration: 0.1s;
+}
+
+@media (min-width: 768px) {
+  .button {
+    padding: 0 2.6rem;
+  }
+}

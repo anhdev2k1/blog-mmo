@@ -12,11 +12,22 @@
     "@types/node": "20.4.1",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
+    "antd": "^5.7.2",
     "axios": "^1.4.0",
+    "bcryptjs": "^2.4.3",
+    "cookie": "^0.5.0",
+    "jsonwebtoken": "^9.0.1",
     "mongoose": "^7.3.2",
     "next": "13.4.9",
+    "next-images": "^1.8.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.1.6"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^8.0.1",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cookie": "^0.5.1",
+    "@types/jsonwebtoken": "^9.0.2"
   }
 }

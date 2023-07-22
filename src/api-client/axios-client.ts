@@ -1,7 +1,7 @@
 import axios, { AxiosError, InternalAxiosRequestConfig } from "axios";
 
 const axiosClient = axios.create({
-  baseURL: "/api",
+  baseURL: "http://localhost:3000/api",
   headers: {
     "Content-Type": "application/json",
   },
@@ -13,6 +13,8 @@ axiosClient.interceptors.response.use(
     // Any status code that lie within the range of 2xx cause this function to trigger
     // Do something with response data
     return response.data;
+    
+    
   },
   function (error: AxiosError) {
     // Any status codes that falls outside the range of 2xx cause this function to trigger
@@ -26,7 +28,7 @@ axiosClient.interceptors.request.use(function (
 ) {
   let userID: string | null = localStorage.getItem("userId");
   if (userID) {
-    config.headers["client-id"] = userID;
+    config.headers["x-access-token"] = userID;
     // config.headers['Content-Type'] = 'multipart/form-data';
   }
   return config;
