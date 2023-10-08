@@ -1,13 +1,8 @@
-"use client"
 import Footer from "@/components/Footer/footer";
 import Navbar from "@/components/Navbar/navbar";
 import { Providers } from "@/redux/provider";
 import "@/styles/global.css";
 import type { Metadata } from "next";
-export const metadata: Metadata = {
-  title: "Tiến Long Media",
-  description: "Cung cấp các dịch vụ mạng xã hội",
-};
 
 export default function RootLayout({
   children,
