@@ -1,3 +1,4 @@
+"use client"
 import { postApi, serviceApi, userApi } from "@/api-client";
 import { getPosts } from "@/redux/features/posts";
 import { getServices } from "@/redux/features/services";
