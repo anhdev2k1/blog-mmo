@@ -1,3 +1,4 @@
+"use client"
 import Footer from "@/components/Footer/footer";
 import Navbar from "@/components/Navbar/navbar";
 import { Providers } from "@/redux/provider";
