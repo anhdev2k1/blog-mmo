@@ -1,11 +1,14 @@
+import { Service } from "./service.type";
 
 export interface Post{
-    id: string | number;
+    _id: string | number;
     title: string;
     content: string;
     slug?: string;
-    image: string;
-    service: string;
+    service: Service;
+    deleteAt: Date;
+    createdAt?: Date;
+    user: string;
 }
 export interface IResponsePost<T>{
     status_code: number | string

@@ -26,7 +26,7 @@ axiosClient.interceptors.response.use(
 axiosClient.interceptors.request.use(function (
   config: InternalAxiosRequestConfig<any>
 ) {
-  let userID: string | null = localStorage.getItem("userId");
+  let userID: string | null = localStorage.getItem("token");
   if (userID) {
     config.headers["x-access-token"] = userID;
     // config.headers['Content-Type'] = 'multipart/form-data';

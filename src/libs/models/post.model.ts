@@ -16,9 +16,6 @@ const PostSchema = new Schema({
     slug:{
         type: String,
     },
-    image:{
-        type: String
-    },
     service:{
         type: Schema.Types.ObjectId,
         ref: 'Service'

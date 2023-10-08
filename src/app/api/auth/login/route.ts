@@ -3,11 +3,10 @@ import { User } from "@/libs/models/user.model";
 import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 import bcryptjs from "bcryptjs";
-import { serialize } from "cookie";
 export async function POST(req: Request, res: Response) {
+  await connectMongoDB();
   try {
     const { email, password } = await req.json();
-    await connectMongoDB();
     const foundUser = await User.findOne({ email }).lean();
     if (!foundUser) {
       return NextResponse.json({
@@ -36,9 +35,8 @@ export async function POST(req: Request, res: Response) {
       status_code: 200,
       status: "success",
       msg: "Login is successfully!",
-      data: {...foundUser, token}
+      data: { ...foundUser, token },
     });
-    
   } catch (error) {
     return NextResponse.json({
       status_code: 500,

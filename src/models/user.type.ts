@@ -7,9 +7,14 @@ export interface UserLogin{
 }
 export interface UserProfile extends UserLogin{
     username: string;
-    avatarUrl: string;
-    services: Service[];
-    posts: Post[]
+    services?: Service[];
+    posts: Post[];
+    token?:string
+}
+export interface UserToken{
+    id: string;
+    username: string;
+    email: string
 }
 export interface IResponsUser<T>{
     status_code: number | string

@@ -1,8 +1,9 @@
 export interface Service{
-    id: string | number;
+    _id: string | number;
     name: string;
     slug?: string;
-    image: string
+    image: string;
+    deleteAt?: Date
 }
 export interface IResponseService<T>{
     status_code: number | string

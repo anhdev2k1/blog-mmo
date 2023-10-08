@@ -9,6 +9,7 @@ interface IDataToken{
     username: string
 }
 export async function GET(req: Request, res: Response) {
+  await connectMongoDB();
   try {
     const token = req.headers.get('x-access-token');
     if (!token) {

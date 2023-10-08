@@ -1,14 +1,39 @@
 "use client";
 import { images } from "@/assets/images";
-import { svgs } from "@/assets/svgs";
 import Image from "next/image";
-import { LockOutlined, UserOutlined } from "@ant-design/icons";
+import { LockOutlined, MailOutlined } from "@ant-design/icons";
 import { Button, Form, Input } from "antd";
 import style from "./login.module.css";
+import { userApi } from "@/api-client";
+import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+
+interface IPayloadLogin{
+  email: string;
+  password: string
+}
 const Login = () => {
   const [form] = Form.useForm();
-  const onFinish = (values: any) => {
-    console.log("Finish:", values);
+  const {push} = useRouter()
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const onFinish = async (values: IPayloadLogin) => {
+    if(!values.email || !values.password) return
+    try {
+      setIsLoading(true)
+      const {data, status} = await userApi.login(values)
+      if(status === 'success'){
+        localStorage.setItem('token', data?.token!)
+        alert("Đăng nhập thành công")
+        push('/dashboard')
+      }
+    } catch (error) {
+      console.log(error);
+      
+    }
+    finally{
+      setIsLoading(false)
+    }
   };
   return (
     <div className={style.wrapper}>
@@ -26,7 +51,7 @@ const Login = () => {
           >
             <Input
               style={{ height: "40px" }}
-              prefix={<UserOutlined className="site-form-item-icon" />}
+              prefix={<MailOutlined className="site-form-item-icon" />}
               placeholder="Email"
               className={style.input__form}
             />
@@ -45,9 +70,11 @@ const Login = () => {
           </Form.Item>
           <Form.Item>
             <Button className={style.button} role="button" type="primary" htmlType="submit">
-              Đăng nhập 🚀
+              {isLoading ? 'Đợi tý nha...' : 'Đăng nhập 🚀'}
             </Button>
           </Form.Item>
+
+          <span>Nếu bạn chưa có tài khoản ? <Link href="/register">Đăng ký</Link></span>
         </Form>
         <div className={style.login__img}>
           <Image src={images.imgLogin} alt="image" />

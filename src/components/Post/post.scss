@@ -1,0 +1,48 @@
+.posts__item {
+  min-width: calc(calc(100% / 3) - 20px);
+  height: max-content;
+  max-height: 250px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #333;
+
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .posts__header-circle {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: linear-gradient(
+        90deg,
+        hsla(312, 77%, 86%, 1) 0%,
+        hsla(220, 61%, 79%, 1) 100%
+      );
+    }
+  }
+  &-heading {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  &-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    .posts__footer-desc {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      max-height: 74px;
+      -webkit-line-clamp: 3;
+      width: 60%;
+    }
+  }
+}

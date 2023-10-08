@@ -4,9 +4,9 @@ import bcryptjs from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import { connectMongoDB } from "@/libs/connect";
 export async function POST(req: Request , res: Response) {
+    await connectMongoDB();
     try {
         const {email, username, password} = await req.json()
-        await connectMongoDB();
         const foundUser = await User.findOne({email}).lean()
         
         if(foundUser){

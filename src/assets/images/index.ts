@@ -15,5 +15,10 @@ export const images = {
   icWorld: require("./ic-world.png"),
   banner1: require("./img-banner1.png"),
   imgLogin: require("./img-login.png"),
-  bgMain: require("./bg-main.png")
+  bgMain: require("./bg-main.png"),
+  user1: require("./user1.jpg"),
+  user2: require("./user2.jpg"),
+  user3: require("./user3.jpg"),
+  bank: require("./bank.jpg"),
+
 };
