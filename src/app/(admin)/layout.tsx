@@ -1,4 +1,3 @@
-"use client";
 import NavbarDashboard from "@/components/DashboardNavbar";
 import SidebarDashboard from "@/components/sidebarDashboard";
 import "@/styles/global.css";
