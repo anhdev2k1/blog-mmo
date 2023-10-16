@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
       {
-        "src": "app/apis/**/*.js",
+        "src": "app/api/**/*.ts",
         "use": "@vercel/node",
         "config": {
           "maxLambdaSize": "50mb"
@@ -11,14 +11,10 @@
       {
         "src": "public/**",
         "use": "@vercel/static"
-      },
-      {
-        "src": "api/**/*.js",
-        "use": "@vercel/node"
       }
     ],
     "routes": [
-      { "src": "/api/(.*)", "dest": "/app/apis/$1" },
+      { "src": "/api/(.*)", "dest": "/app/api/$1" },
       { "src": "/(.*)", "dest": "/$1" }
     ]
   }
