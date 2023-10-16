@@ -26,7 +26,7 @@
     "jsonwebtoken": "^9.0.1",
     "moment": "^2.29.4",
     "mongoose": "^7.3.2",
-    "next": "^13.4.13-canary.6",
+    "next": "^13.5.5",
     "next-images": "^1.8.5",
     "nextjs-progressbar": "^0.0.16",
     "quill-image-resize": "^3.0.9",
