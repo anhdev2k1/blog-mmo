@@ -1,5 +1,22 @@
 {
-  "rewrites": [
-    {"source": "/(.*)","destination":"/"}
-  ]
-}
+    "version": 2,
+    "builds": [
+      {
+        "src": "app/api/**/*.ts",
+        "use": "@vercel/node",
+        "config": {
+          "maxLambdaSize": "50mb"
+        }
+      },
+      {
+        "src": "app/**",
+        "use": "@vercel/next"
+      }
+    ],
+    "routes": [
+        { "src": "/api/(.*)", "dest": "/app/api/$1" },
+        { "src": "/(.*)", "dest": "/app/$1" }
+      ]
+      
+  }
+  
