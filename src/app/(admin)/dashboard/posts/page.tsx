@@ -1,4 +1,4 @@
-"use client";
+
 import { postApi } from "@/api-client";
 import UpdatePost from "@/components/UpdatePost";
 import { Post } from "@/models/post.type";
