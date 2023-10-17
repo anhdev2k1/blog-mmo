@@ -9,7 +9,7 @@
         }
       },
       {
-        "src": "app/**",
+        "src": "app/**/*.tsx",
         "use": "@vercel/next"
       }
     ],
