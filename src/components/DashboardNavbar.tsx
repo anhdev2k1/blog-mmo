@@ -7,7 +7,7 @@ const NavbarDashboard = () => {
         <nav className={style.navbar}>
             <span className={style.logo}>Tiến long.</span>
 
-            <span className="info__user">{`Chào, ${getCurrentUser.username} !`}</span>
+            <span className="info__user">{`Chào, ${getCurrentUser?.username} !`}</span>
         </nav>
      );
 }

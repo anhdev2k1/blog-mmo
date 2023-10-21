@@ -5,7 +5,7 @@ import Link from "next/link";
 interface IPostProps {
   data: Post;
 }
-const Post = ({ data }: IPostProps) => {
+const PostPage = ({ data }: IPostProps) => {
   const currentTime = new Date();
   const startTime = new Date(data.createdAt!);
 
@@ -28,4 +28,4 @@ const Post = ({ data }: IPostProps) => {
   );
 };
 
-export default Post;
+export default PostPage;

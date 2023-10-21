@@ -1,19 +1,25 @@
 "use client";
-import ReactQuill from "react-quill";
+// const ReactQuill =
+//   typeof window === "object" ? require("react-quill") : () => false;
+const QuillNoSSRWrapper = dynamic(import('react-quill'), {
+  ssr: false,
+  loading: () => <p>Loading ...</p>,
+})
 import "react-quill/dist/quill.snow.css";
 import EditToolbar, { formats, modules } from "@/components/EditorToolbar";
 import { useState } from "react";
-import { Button, Form, Input, Select, message, notification } from "antd";
+import { Button, Form, Input, Select, notification } from "antd";
 import { postApi } from "@/api-client";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { Service } from "@/models/service.type";
 import { convertToSlug } from "@/ultis/convertToSlug";
 import { addPost } from "@/redux/features/posts";
+import dynamic from "next/dynamic";
 const CreatePost = () => {
   const [values, setValues] = useState("");
   const [newForm] = Form.useForm();
   const [api, contextHolder] = notification.useNotification();
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   const getAllService = useAppSelector(
     (state) => state.serviceReducer.services
   );
@@ -26,14 +32,14 @@ const CreatePost = () => {
     };
     try {
       const data = await postApi.createPost(newPost);
-      dispatch(addPost(data.data!))
+      dispatch(addPost(data.data!));
       api.success({
         message: data.msg,
       });
       newForm.resetFields();
       setValues("");
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -62,7 +68,7 @@ const CreatePost = () => {
           </Select>
         </Form.Item>
         <EditToolbar toolbarId="toolbar" />
-        <ReactQuill
+        <QuillNoSSRWrapper
           theme="snow"
           placeholder={"Write something awesome..."}
           modules={modules("toolbar")}

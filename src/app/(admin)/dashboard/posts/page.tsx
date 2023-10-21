@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { Button, Modal, Table, Space, Tag, notification } from "antd";
 import { ColumnsType } from "antd/es/table";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const Posts = () => {
   const { push } = useRouter();
