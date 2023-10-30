@@ -1,13 +1,8 @@
 "use client";
-// const ReactQuill =
-//   typeof window === "object" ? require("react-quill") : () => false;
-const QuillNoSSRWrapper = dynamic(import('react-quill'), {
-  ssr: false,
-  loading: () => <p>Loading ...</p>,
-})
+
 import "react-quill/dist/quill.snow.css";
 import EditToolbar, { formats, modules } from "@/components/EditorToolbar";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Button, Form, Input, Select, notification } from "antd";
 import { postApi } from "@/api-client";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
@@ -17,6 +12,10 @@ import { addPost } from "@/redux/features/posts";
 import dynamic from "next/dynamic";
 const CreatePost = () => {
   const [values, setValues] = useState("");
+  const ReactQuill = useMemo(
+    () => dynamic(() => import("react-quill"), { ssr: false }),
+    []
+  );
   const [newForm] = Form.useForm();
   const [api, contextHolder] = notification.useNotification();
   const dispatch = useAppDispatch();
@@ -68,14 +67,14 @@ const CreatePost = () => {
           </Select>
         </Form.Item>
         <EditToolbar toolbarId="toolbar" />
-        <QuillNoSSRWrapper
+        {/* <ReactQuill
           theme="snow"
           placeholder={"Write something awesome..."}
           modules={modules("toolbar")}
           formats={formats}
           value={values}
           onChange={setValues}
-        />
+        /> */}
         <Button className="btn" type="primary" htmlType="submit">
           Thêm bài đăng
         </Button>

@@ -87,7 +87,7 @@ const Posts = () => {
         footer={null}
         onCancel={handleCancel}
       >
-        <UpdatePost post={postDetail!} />
+        {/* <UpdatePost post={postDetail!} /> */}
       </Modal>
     </>
   );

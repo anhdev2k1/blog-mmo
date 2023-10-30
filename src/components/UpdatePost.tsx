@@ -1,23 +1,28 @@
 "use client";
 import { Post } from "@/models/post.type";
-import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import EditToolbar, { formats, modules } from "@/components/EditorToolbar";
 import { Service } from "@/models/service.type";
 import { Button, Form, Input, Select, notification } from "antd";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { convertToSlug } from "@/ultis/convertToSlug";
 import { postApi } from "@/api-client";
 import { updatePost as updateToRedux } from "@/redux/features/posts";
+import dynamic from "next/dynamic";
 interface IPostProps {
   post: Post;
 }
 const UpdatePost = ({ post }: IPostProps) => {
+  const ReactQuill = useMemo(
+    () => dynamic(() => import("react-quill"), { ssr: false }),
+    []
+  );
+
   const [values, setValues] = useState("");
   const [newForm] = Form.useForm();
   const [api, contextHolder] = notification.useNotification();
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   useEffect(() => {
     if (post && Object.keys(post).length > 0) {
       newForm.setFieldsValue(post);
@@ -34,7 +39,7 @@ const UpdatePost = ({ post }: IPostProps) => {
     };
     try {
       const data = await postApi.updatePost(post._id as string, newPost);
-      dispatch(updateToRedux({_id: post._id, ...newPost}))
+      dispatch(updateToRedux({ _id: post._id, ...newPost }));
       api.success({
         message: data.msg,
       });
@@ -68,7 +73,7 @@ const UpdatePost = ({ post }: IPostProps) => {
               })}
             </Select>
           </Form.Item>
-          {/* <EditToolbar toolbarId="toolbar" />
+          <EditToolbar toolbarId="toolbar" />
           <ReactQuill
             theme="snow"
             placeholder={"Write something awesome..."}
@@ -76,7 +81,7 @@ const UpdatePost = ({ post }: IPostProps) => {
             formats={formats}
             value={values}
             onChange={setValues}
-          /> */}
+          />
           <Button className="btn" type="primary" htmlType="submit">
             Cập nhật bài đăng
           </Button>
